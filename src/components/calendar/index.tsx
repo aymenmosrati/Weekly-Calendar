@@ -115,11 +115,7 @@ const WeeklyCalendar = () => {
     }
   };
 
-  const renderEvent = (
-    event: CalendarEvent,
-    hour: number,
-    index: number
-  ) => {
+  const renderEvent = (event: CalendarEvent, hour: number, index: number) => {
     const eventStart = dayjs(event.startTime);
     const eventEnd = dayjs(event.endTime);
 
@@ -221,7 +217,6 @@ const WeeklyCalendar = () => {
                   const eventsForThisHour = getEventsForDay(
                     events,
                     day,
-                    currentWeekStart,
                     weekEnd
                   );
                   return (
@@ -234,7 +229,7 @@ const WeeklyCalendar = () => {
                           onClick={() => handleCellClick(day, time)}
                         >
                           {eventsForThisHour?.map((event, index) =>
-                            renderEvent(event, day, i, index)
+                            renderEvent(event, i, index)
                           )}
                           {provided.placeholder}
                         </div>

@@ -61,7 +61,7 @@ const WeeklyCalendar = () => {
     const hoursDiff = parseInt(destHour) - parseInt(srcHour);
     const daysDiff = destDate.diff(srcDate, "day");
 
-    // Apply the time difference to event start and end times
+    // Calculate the new start and end times
     const newStartTime = dayjs(event.startTime)
       .add(daysDiff, "day")
       .add(hoursDiff, "hour");
@@ -69,19 +69,49 @@ const WeeklyCalendar = () => {
       .add(daysDiff, "day")
       .add(hoursDiff, "hour");
 
-    // Create updated event
+    // Create updated event with the new times
     const updatedEvent = {
       ...event,
       startTime: newStartTime.toISOString(),
       endTime: newEndTime.toISOString(),
     };
 
+    // Handle different recurrence patterns
     if (event.recurrencePattern === "none") {
       dispatch(updateEvent(updatedEvent));
       showInfo("Event updated!", updatedEvent.title);
-    } else {
-      dispatch(updateEvent(updatedEvent));
-      showInfo("In Progress", "Now You can drag The Recurrence of type none!");
+    } else if (event.recurrencePattern === "daily") {
+      const updatedDailyEvent = {
+        ...updatedEvent,
+        recurrencePattern: "daily" as const,
+      };
+      dispatch(updateEvent(updatedDailyEvent));
+      showInfo("Daily recurring event updated!", updatedEvent.title);
+    } else if (event.recurrencePattern === "weekly" && event.weeklyRecurrence) {
+      // For weekly events, maintain the same days of the week but shift them based on the new start date
+      const originalDaysOfWeek = event.weeklyRecurrence.daysOfWeek;
+      const originalStartDay = dayjs(event.startTime).day();
+      const newStartDay = newStartTime.day();
+      const dayShift = newStartDay - originalStartDay;
+
+      // Shift all days of the week by the same amount, ensuring they stay within 0-6 range
+      const updatedDaysOfWeek = originalDaysOfWeek.map((day) => {
+        const shiftedDay = (day + dayShift) % 7;
+        return shiftedDay >= 0 ? shiftedDay : shiftedDay + 7;
+      });
+
+      const updatedWeeklyRecurrence = {
+        ...event.weeklyRecurrence,
+        daysOfWeek: updatedDaysOfWeek,
+      };
+
+      const updatedWeeklyEvent = {
+        ...updatedEvent,
+        weeklyRecurrence: updatedWeeklyRecurrence,
+      };
+
+      dispatch(updateEvent(updatedWeeklyEvent));
+      showInfo("Weekly recurring event updated! ", updatedEvent.title);
     }
   };
 

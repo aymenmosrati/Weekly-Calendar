@@ -1,0 +1,159 @@
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+
+  .nav-buttons {
+    display: flex;
+    gap: 8px;
+
+    .ant-btn-sm,
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      height: 36px;
+      padding-left: 12px;
+      padding-right: 12px;
+
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+
+      background-color: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+    }
+  }
+
+  .week-range {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+
+.schedule-wrapper {
+  display: flex;
+  flex-grow: 1;
+  overflow: auto;
+  border: 1px solid #919eab29;
+  border-radius: 6px;
+
+  .time-column {
+    width: 64px;
+    flex-shrink: 0;
+    background-color: #f1f5f94d;
+
+    .empty-cell {
+      height: 48px;
+      border-bottom: 1px solid #919eab29;
+    }
+
+    .time-slot {
+      height: 60px;
+      border-bottom: 1px solid #919eab29;
+      padding: 4px 8px;
+      font-size: 12px;
+      text-align: right;
+      font-size: 12px;
+      line-height: 16px;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .days-columns {
+    display: flex;
+    flex-grow: 1;
+
+    .day-column {
+      flex: 1;
+      min-width: 100px;
+      border-left: 1px solid #919eab29;
+
+      &.today {
+        background-color: #eff6ff;
+      }
+
+      .day-header {
+        height: 48px;
+        border-bottom: 1px solid #919eab29;
+        padding: 4px;
+        background-color: #fff;
+
+        &.today {
+          background-color: #eff6ff;
+        }
+
+        .text-center {
+          text-align: center;
+
+          .day-name {
+            font-weight: 500;
+          }
+
+          .day-number {
+            font-size: 15px;
+          }
+        }
+      }
+
+      .hour-slot {
+        height: 60px;
+        border-bottom: 1px solid #919eab29;
+        position: relative;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .event-item {
+          position: absolute;
+          left: 0;
+          right: 0;
+          border-radius: 4px;
+          padding: 4px;
+          color: white;
+          font-size: 14px;
+          overflow: hidden;
+          z-index: 10;
+
+          &.work {
+            background-color: #1eaedb;
+          }
+
+          &.personal {
+            background-color: #6bcb77;
+          }
+
+          &.meeting {
+            background-color: #f97316;
+          }
+
+          .event-title {
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: flex;
+            align-items: center;
+
+            .repeat-icon {
+              margin-left: 4px;
+            }
+          }
+
+          .event-time {
+            font-size: 12px;
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+  }
+}

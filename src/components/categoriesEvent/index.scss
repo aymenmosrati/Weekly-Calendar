@@ -1,0 +1,34 @@
+.categoriesEvent {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 16px;
+
+  .category {
+    display: flex;
+    align-items: center;
+
+    .color-box {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      margin-right: 4px;
+
+      &.work {
+        background-color: #1eaedb;
+      }
+
+      &.personal {
+        background-color: #6bcb77;
+      }
+
+      &.meeting {
+        background-color: #f97316;
+      }
+    }
+
+    .label {
+      font-size: 14px;
+    }
+  }
+}

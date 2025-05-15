@@ -1,0 +1,153 @@
+.event-modal {
+  .ant-modal-content {
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .event-modal__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .event-modal__title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #000000;
+  }
+
+  .repeat-icon {
+    color: #1677ff;
+  }
+
+  .event-form {
+    .ant-form-item-label {
+      > label {
+        font-size: 15px;
+        color: #000000;
+        font-weight: 500;
+      }
+    }
+    .ant-input,
+    .ant-picker {
+      padding-top: 8px;
+      padding-bottom: 8px;
+      font-size: 14px;
+      color: #000000;
+      width: 100%;
+    }
+    .ant-radio-wrapper {
+      &:hover {
+        .ant-radio-inner {
+          border-color: #0f172a;
+        }
+      }
+      .ant-radio {
+        &.ant-radio-checked {
+          .ant-radio-inner {
+            border-color: #0f172a;
+            background-color: #0f172a;
+          }
+        }
+      }
+      &:hover {
+        &.radio-work {
+          .ant-radio-inner {
+            border-color: #1e90ff;
+          }
+        }
+        &.radio-personal {
+          .ant-radio-inner {
+            border-color: #28a745;
+          }
+        }
+        &.radio-meeting {
+          .ant-radio-inner {
+            border-color: #fd7e14;
+          }
+        }
+      }
+
+      &.radio-work {
+        color: #1e90ff;
+        .ant-radio {
+          &.ant-radio-checked {
+            .ant-radio-inner {
+              border-color: #1e90ff;
+              background-color: #1e90ff;
+            }
+          }
+        }
+      }
+
+      &.radio-personal {
+        color: #28a745;
+        .ant-radio {
+          &.ant-radio-checked {
+            .ant-radio-inner {
+              border-color: #28a745;
+              background-color: #28a745;
+            }
+          }
+        }
+      }
+
+      &.radio-meeting {
+        color: #fd7e14;
+        .ant-radio {
+          &.ant-radio-checked {
+            .ant-radio-inner {
+              border-color: #fd7e14;
+              background-color: #fd7e14;
+            }
+          }
+        }
+      }
+    }
+
+    .event-form__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .event-form__days {
+      display: flex;
+      gap: 8px;
+
+      .event-form__day {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #f1f5f9;
+        color: #0f172a;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+          background-color: #f1f5f9cc;
+        }
+
+        &.active {
+          background-color: #0f172a;
+          color: #f8fafc;
+        }
+      }
+    }
+
+    .event-form__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+    }
+  }
+}

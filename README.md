@@ -93,7 +93,7 @@ The calendar supports three types of event recurrence patterns:
 
 4. Open your browser and navigate to `http://localhost:5173`
 
-5. Open your browser and navigate to live demo link `http://localhost:5173`
+5. Open your browser and navigate to live demo link `https://event-weekly-calendar--kappa.vercel.app/`
 
 ### Building for Production
 

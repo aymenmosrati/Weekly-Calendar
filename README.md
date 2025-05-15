@@ -71,7 +71,7 @@ The calendar supports three types of event recurrence patterns:
 1. Clone the repository:
 
    ```bash
-   git clone [repository-url]
+   git clone https://github.com/aymenmosrati/Weekly-Calendar.git
    cd weekly-calendar
    ```
 
@@ -92,6 +92,8 @@ The calendar supports three types of event recurrence patterns:
    ```
 
 4. Open your browser and navigate to `http://localhost:5173`
+
+5. Open your browser and navigate to live demo link `http://localhost:5173`
 
 ### Building for Production
 

@@ -117,7 +117,6 @@ const WeeklyCalendar = () => {
 
   const renderEvent = (
     event: CalendarEvent,
-    date: dayjs.Dayjs,
     hour: number,
     index: number
   ) => {

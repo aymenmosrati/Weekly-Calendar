@@ -4,7 +4,6 @@ import { CalendarEvent } from "../types/calendar";
 export const getEventsForDay = (
   events: CalendarEvent[],
   date: dayjs.Dayjs,
-  weekStart: dayjs.Dayjs,
   weekEnd: dayjs.Dayjs
 ): CalendarEvent[] => {
   const dateStr = date.format("YYYY-MM-DD");
